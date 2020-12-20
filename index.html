@@ -7,22 +7,48 @@
 </head>
 <body>
     <script>
-        function bullueSort(arr){
+        //选择排序，记住最小值的索引，交换索引值
+        function selectionSort(arr){
             if(arr.length == 1){
                 return arr
             }
+            var temp,minIndex;
             for(var i=0;i<arr.length-1;i++){
-                for(var j=0;j<arr.length-i-1;j++){
-                    if(arr[j]>arr[j+1]){
-                        var mid = arr[j]
-                        arr[j] = arr[j+1]
-                        arr[j+1] = mid
+                minIndex=i;
+                for(var j=i+1;j<arr.length;j++){
+                    if(arr[j]<arr[minIndex]){
+                        //获取最小值的索引
+                        minIndex = j;
                     }
                 }
+                //arr[minIndex]为最小值，放到前面
+                temp = arr[i]
+                arr[i] = arr[minIndex]
+                arr[minIndex] = temp
             }
             return arr
         }
-        console.log(bullueSort([5,8,1,5,6,9,0]))
+        console.log(selectionSort([5,8,1,5,6,9,0]))
+
+
+
+        //冒泡排序
+        // function bullueSort(arr){
+        //     if(arr.length == 1){
+        //         return arr
+        //     }
+        //     for(var i=0;i<arr.length-1;i++){
+        //         for(var j=0;j<arr.length-i-1;j++){
+        //             if(arr[j]>arr[j+1]){
+        //                 var mid = arr[j]
+        //                 arr[j] = arr[j+1]
+        //                 arr[j+1] = mid
+        //             }
+        //         }
+        //     }
+        //     return arr
+        // }
+        // console.log(bullueSort([5,8,1,5,6,9,0]))
     </script>
 </body>
 </html>
