@@ -7,22 +7,48 @@
 </head>
 <body>
     <script>
-        //插入排序
-        function insertSort(arr){
-            var preIndex,current;
-            for(var i=1;i<arr.length;i++){
-                preIndex = i-1 //左手已经排好顺序的牌
-                current = arr[i] //右手手里拿到的牌
-                while(preIndex>=0&&arr[preIndex]>current){
-                    //如果左手从有数的牌，比右手的牌大，就将左手的牌向右移动
-                    arr[preIndex+1]=arr[preIndex];
-                    preIndex--
-                }
-                arr[preIndex+1]=current
+        //快速排序
+        //以某个数为基准，大的排到后面，小的排到前面
+        let quickSort = (arr) => {
+            if (arr.length <= 1) {
+                return arr
             }
-            return arr;
+            let privotIndex = Math.floor(arr.length / 2)
+            // splice返回的是一个数组所以加【0】
+            let privot = arr.splice(privotIndex, 1)[0]
+            let left = []
+            let right = []
+
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] < privot) {
+                    left.push(arr[i])
+                } else {
+                    right.push(arr[i])
+                }
+            }
+
+            return quickSort(left).concat([privot], quickSort(right))
         }
-        console.log(insertSort([5,8,1,5,6,9,0]))
+        console.log(quickSort([5, 8, 1, 2, 78, 41, 5, 6, 9]))
+
+
+
+        // //插入排序
+        // function insertSort(arr){
+        //     var preIndex,current;
+        //     for(var i=1;i<arr.length;i++){
+        //         preIndex = i-1 //左手已经排好顺序的牌
+        //         current = arr[i] //右手手里拿到的牌
+        //         while(preIndex>=0&&arr[preIndex]>current){
+        //             //如果左手从有数的牌，比右手的牌大，就将左手的牌向右移动
+        //             arr[preIndex+1]=arr[preIndex];
+        //             preIndex--
+        //         }
+        //         arr[preIndex+1]=current
+        //     }
+        //     return arr;
+        // }
+        // console.log(insertSort([5,8,1,5,6,9,0]))
 
 
 
