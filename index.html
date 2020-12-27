@@ -98,17 +98,35 @@
 
         
     //两数之和
-        //解法一：暴力解法
-        var twoSum = function(nums, target) {
-            for(let i = 0; i < nums.length-1; i++) {
-                for(let j=i+1;j<nums.length;j++){
-                    if(nums[i]+nums[j] === target){
-                        return [i,j]
-                    }
-                }
-            }
-        }
-        console.log(twoSum([2, 7, 11, 15],18))
+        // //解法一：暴力解法
+        // var twoSum = function(nums, target) {
+        //     for(let i = 0; i < nums.length-1; i++) {
+        //         for(let j=i+1;j<nums.length;j++){
+        //             if(nums[i]+nums[j] === target){
+        //                 return [i,j]
+        //             }
+        //         }
+        //     }
+        // }
+        // console.log(twoSum([2, 7, 11, 15],18))
+
+        // //哈希表
+        // function twoSum(arr,target){
+        //     const length = arr.length;
+        //     const mayMap = new Map();
+        //     for (let i = 0; i < length; i++) {
+        //         if (mayMap.has(target - arr[i])) {
+        //             return [mayMap.get(target - arr[i]), i];
+        //         }
+        //             mayMap.set(arr[i], i);
+        //     }
+        // }
+        // console.log(twoSum([2, 7, 11, 15],9))
+
+        // 时间复杂度：O(N)O(N)，其中 NN 是数组中的元素数量。对于每一个元素 x，我们可以 O(1)O(1) 地寻找 target - x。
+        // 空间复杂度：O(N)O(N)，其中 NN 是数组中的元素数量。主要为哈希表的开销。
+
+
 
 
     </script>
